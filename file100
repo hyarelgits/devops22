@@ -1,1 +1,11 @@
 ssh key1
+node{
+    stage ('SCM Checkout'){
+        git(credentialsId: 'git-creds', url: '
+https://github.com/hyarelgits/jenkins22.git'
+, branch: 'master')
+    }
+    stage('MVN Package'){
+        sh 'mvn clean package'
+    }
+}
